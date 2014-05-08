@@ -1,0 +1,82 @@
+CS240 Lecture 1
+
+Data Structure.
+
+	Eg. {
+			integer, boolean, floating point (primitive types)
+			array, binary tree (composed types)
+		}
+
+Abstract Data Type
+	Eg. {
+			List (linklists, doubly linked lists, skip lists)
+			Tree
+			Queue
+		}
+
+		ADT stack: 
+					void Push(item)
+					Item Pop(void)
+					bool isEmpty()
+
+Problem of sorting (what is a problem)
+
+	Instance: I = [ 5 1 4 3 ]
+	Solution: S = [ 1 3 4 5 ]
+
+	Size: Size(I) = 4
+
+Algorithm.
+
+An algorithm A solves a problem P if, for every instance I of P, A finds a valid solution for the instance I in finite time.
+
+Efficiency of algorithm: 
+		
+		running time *
+		space (amount of memory)
+
+Given two algorithms/programs, how to determine which one is more efficient.
+
+	1) experimental studies.
+			short comes:
+				1. we have to implement the algorithm.
+				2. timings are affected by many factors: hardware/software environment.
+				3. we cannot test all inputs
+			=> we need some simplifications then
+
+RAM
+
+	access to a memory location takes constant time.
+	primitive operation takes constant time.
+	address fit in a single cell.
+
+	=> overcome the shortcomes.
+
+		Express algorithms using pseudo-code.
+		count number of primitive operations instead of time.
+
+Order notation
+	- consider only large input sizes
+	- discard constants
+
+	1. O-notation.
+		def: f(n) is an element of O(g(n)) <=> there exists c>0, there exists n_0 > 0
+			such that for all n>n_0,
+			we have: 0< f(n) < g(n)*c
+
+		i.e. f grows no faster than g
+
+Example, prove that (n+1)^5 is an element of O(n^5)
+
+	Since for all n >= 1, n+1 <= 2n.
+	Therefore for all n >= 1, (n+1)^5 <= 32n^5.
+
+	let c=32, n_0 = 1, then for all n >= n_0, (n+1)^5 <= cn^5
+
+Example prove that n^2 + nlogn +n is element of O(n^2)
+
+	note that for n >= 1, logn <= n
+
+	for all n >= 1, n^2 + nlogn + n <= 3n^2
+
+	let c = 3, n_0 = 1 then for all n >= n_0, n^2 + nlogn + n <= cn^2
